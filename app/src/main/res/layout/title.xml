@@ -16,11 +16,8 @@
         android:id="@+id/title_plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:shadowColor="#000000"
+        android:shadowColor="#00cd00"
         android:background="@drawable/ap_"/>
-    <com.lynn.chat.MyButton
-        android:id="@+id/my_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>
