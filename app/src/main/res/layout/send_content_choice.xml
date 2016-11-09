@@ -18,7 +18,7 @@
             android:id="@+id/choose_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Location"/>
+            android:text="location"/>
 
 
 
