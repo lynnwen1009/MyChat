@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_chatting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/chatting_bg"
+
+    android:focusableInTouchMode="true"
+    android:focusable="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/chatting_title"/>
+    <ListView
+        android:id="@+id/msg_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#0000">
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:id="@+id/input_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="type something here"
+
+
+            android:maxLines="2"/>
+        <Button
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_send_choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:id="@+id/choose_images"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Images"/>
+        <Button
+            android:id="@+id/choose_sights"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sights"/>
+        <Button
+            android:id="@+id/choose_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"/>
+        </LinearLayout>
+
+
+
+</LinearLayout>

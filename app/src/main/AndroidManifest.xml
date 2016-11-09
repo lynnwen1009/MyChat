@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lynn.chattest2" >
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="ANDROID.PERMISSION.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="ANDROID.PERMISSION.USE_CREDENTIALS"/>
+    <uses-permission android:name="ANDROID.PERMISSION.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="ANDROID.PERMISSION.GET_ACCOUNTS"/>
+    <uses-permission android:name="ANDROID.PERMISSION.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="ANDROID.PERMISSION.READ_SETTINGS"/>
+    <uses-permission android:name="ANDROID.PERMISSION.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="ANDROID.PERMISSION.BROADCAST_STICKY"/>
+    <uses-permission android:name="ANDROID.PERMISSION.WRITE_SETTINGS"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+
+                >
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="QG9VhHGZKjhm464xn71kQvBe5YaHygRu"/>
+
+        <activity
+            android:name="com.lynn.chat.MainActivity"
+            android:launchMode="singleTask"
+            android:label="MainActivity" >
+        </activity>
+        <activity
+            android:name="com.lynn.chat.LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name="com.lynn.chat.FriendsList"
+            android:label="@string/title_activity_friends_list" >
+        </activity>
+        <activity
+            android:name="com.lynn.chat.TabHostActivity"
+            android:label="@string/title_activity_tab_host" >
+        </activity>
+        <activity
+            android:name="com.lynn.chat.AddFriend"
+            android:label="@string/title_activity_add_friend" >
+        </activity>
+        <activity
+            android:name="com.lynn.chat.GroupChat"
+            android:label="@string/title_activity_group_chat" >
+        </activity>
+        <activity
+            android:name="com.lynn.chat.NewFriendsActivity"
+            android:label="@string/title_activity_new_friends" >
+        </activity>
+        <activity
+            android:name="com.lynn.chat.AboutMeActivity"
+            android:label="@string/title_activity_about_me" >
+        </activity>
+        <activity
+            android:name="com.lynn.chat.ChatsActivity"
+            android:label="@string/title_activity_chats" >
+        </activity>
+        <activity
+            android:name="com.lynn.chat.MeInfoActivity"
+            android:label="@string/title_activity_me_info" >
+        </activity>
+        <activity
+            android:name="com.lynn.chat.PictureViewActivity"
+            android:label="@string/title_activity_picture_view" >
+        </activity>
+        <activity
+            android:name="com.lynn.chat.WelcomeActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.lynn.chat.RegisterActivity"
+            android:label="@string/title_activity_register" >
+        </activity>
+    </application>
+
+</manifest>

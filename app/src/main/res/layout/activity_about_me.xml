@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:showDividers="middle"
+    android:divider="@drawable/divider_line"
+     >
+    <com.lynn.chat.TitleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.lynn.chat.TitleLayout>
+    <LinearLayout
+        android:id="@+id/profile_layout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        >
+        <LinearLayout
+            android:id="@+id/layout_profile_photo"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <ImageView
+                android:id="@+id/me_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+       </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+            <TextView
+                android:id="@+id/me_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+
+              />
+
+            <TextView
+                android:id="@+id/me_userId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+            />
+        </LinearLayout>
+
+
+        </LinearLayout>
+    <TextView
+        android:id="@+id/My_post"
+        android:text="My Posts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"/>
+    <TextView
+        android:id="@+id/Settings"
+        android:text="Settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:paddingBottom="10dp"/>
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log out"
+        android:paddingBottom="10dp"/>
+
+
+</LinearLayout>
+
+
+
