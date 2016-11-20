@@ -69,17 +69,7 @@ public class Constants {
             public static final String CODE_REGISTER_FAILED = "206";
             public static final String MSG_REGISTER_FAILED = "register user failed";
         }
-        private static Map<String, String> errorMap = new HashMap<String, String>();
-        static{
-            errorMap.put("201", "?????????!");
-            errorMap.put("204", "?????!");
-            errorMap.put("205", "??????!");
-            errorMap.put("206", "????????!");
-        }
-        /**??????????????<BR/>??????*/
-        public static String GetErrorInfo(String code){
-            return errorMap.get(code);
-        }
+        
     }
     public static class AutoLogin{
         public static final String  ID = "userId";
@@ -88,7 +78,7 @@ public class Constants {
         public static final String PHOTO = "photo";
         public static final String NAME = "name";
     }
-    /**????*/
+
     public static class Login{
         public static final String LOGIN_URL = HTTP_SERVER_IP + "/MyWeb2/LoginServlet";
 
@@ -112,19 +102,12 @@ public class Constants {
             public static final String MSG_PSD_ERROR = "password id wrong";
 
         }
-        private static Map<String, String> errorMap = new HashMap<String, String>();
-        static{
-            errorMap.put("301", "?????????!");
-            errorMap.put("302", "??????!");
-        }
-        /**??????????????<BR/>??????*/
-        public static String GetErrorInfo(String code){
-            return errorMap.get(code);
-        }
+
+
 
     }
 
-    /**??????*/
+
     public static class UserInfo{
         public static final String MODIFY_USERINFO_URL = HTTP_SERVER_IP + "/MyWeb2/ModifyUserInfoServlet";
         public static final String MODIFY_PSD_URL = HTTP_SERVER_IP + "/MyWeb2/ModifyPsdServlet";
@@ -139,18 +122,11 @@ public class Constants {
             public static final String PASSWORD = "password";
         }
 
-        private static Map<String, String> errorMap = new HashMap<String, String>();
-        static{
-            errorMap.put("402", "????????");
-            errorMap.put("403", "??????");
-        }
-        /**??????????????<BR/>??????*/
-        public static String GetErrorInfo(String code){
-            return errorMap.get(code);
-        }
+
+
     }
 
-    /**??????*/
+
     public static class GetFriendList{
         public static final String GET_FRIEND_LIST_URL = HTTP_SERVER_IP + "/MyWeb2/GetFriendListServlet";
         public static class RequestParams{
@@ -163,7 +139,7 @@ public class Constants {
         }
     }
 
-    /**????*/
+
     public static class AddFriend{
         public static final String SEARCH_USER_URL = HTTP_SERVER_IP + "/MyWeb2/SearchUserServlet";
 
@@ -180,17 +156,11 @@ public class Constants {
             public static final String PHOTO = "photo";
         }
 
-        private static Map<String, String> errorMap = new HashMap<String, String>();
-        static{
-            errorMap.put("501", "????");
-        }
-        /**??????????????<BR/>??????*/
-        public static String GetErrorInfo(String code){
-            return errorMap.get(code);
-        }
+
+
     }
 
-    /**????*/
+
     public static class RemoveFriend{
         public static final String REMOVE_FRIEND_URL = HTTP_SERVER_IP + "/MyWeb2/RemoveFriendServlet";
 
@@ -200,13 +170,13 @@ public class Constants {
         }
     }
 
-    /**????????*/
+
     public static class RequestParams{
         public static final String DATA = "data";
         public static final String PHOTO = "photo";
     }
 
-    /**????????*/
+
     public static class ResponseParams{
         public static final String RES_CODE = "res_code";
         public static final String RES_MSG = "res_msg";
@@ -229,9 +199,7 @@ public class Constants {
     }
 
 
-    /**
-     * JSON??????key
-     */
+
     public static class JsonFile{
         public static final String ID = "id";
         public static final String PHOTO = "photo";
@@ -256,7 +224,7 @@ public class Constants {
 
     }
 
-    /**Activity?????????*/
+
     public static class Flags{
         public static final String AUTO_LOGIN = "AUTO_LOGIN";
         public static final String SHOW_PHOTO = "SHOW_PHOTO";
@@ -269,7 +237,7 @@ public class Constants {
         public static final String CHATTING_MSG = "CHATTING_MSG";
     }
 
-    /**Broadcast?Action?*/
+
     public static class Actions{
         public static final String CHATTING_PREFIX = "com.lynn";
         public static final String CHAT_LIST = "com.lynn.chat_list";
@@ -280,7 +248,7 @@ public class Constants {
 
     }
 
-    /**????*/
+
     public static class Gender{
         public static final String MALE = "male";
         public static final String FEMALE = "female";
