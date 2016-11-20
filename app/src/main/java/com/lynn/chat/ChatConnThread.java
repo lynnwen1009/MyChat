@@ -54,7 +54,7 @@ public class ChatConnThread extends Thread {
 
     public void sendMsg(ChatData.MSG msg){
         try{
-          //  checkSocketConnect();
+             checkSocketConnect();
             if(out==null)
                 Log.d("ChatConnThread","out==null");
             if(msg==null)
@@ -64,7 +64,6 @@ public class ChatConnThread extends Thread {
         }
         catch(IOException e){
             e.printStackTrace();
-
         }
     }
     public synchronized void checkSocketConnect(){
@@ -78,6 +77,8 @@ public class ChatConnThread extends Thread {
                 socket = new Socket(Constants.SERVER_IP,Constants.SERVER_PORT);
                 if(socket==null){
                     Log.d("ChatConnThread","socket null");
+                     continue;
+
                 }
                 socket.setKeepAlive(true);
                 out = new ObjectOutputStream(socket.getOutputStream());
@@ -106,7 +107,9 @@ public class ChatConnThread extends Thread {
         }
         boolean ret = true;
         try{
+            Log.d(TAG, "socket send urgent data ");
             socket.sendUrgentData(0xff);
+            Log.d(TAG, "socket send urgent data success");
         }catch(Exception e){
             Log.d(TAG,"socket send urgent data failed");
             ret  = false;
@@ -142,6 +145,7 @@ public class ChatConnThread extends Thread {
 
                     Log.d("ChatConnThread","run start");
                     socket = new Socket(Constants.SERVER_IP,Constants.SERVER_PORT);
+                    socket.setSoTimeout(2000);
                     Log.d("ChatConnThread","run start---1");
                     if(socket==null){
                         Log.d("ChatConnThread","socket null");
@@ -163,45 +167,53 @@ public class ChatConnThread extends Thread {
                     //    in  = new ObjectInputStream(socket.getInputStream());
                     Object obj = null;
                while(flag){
-                   obj = in.readObject();
-                   if(obj instanceof ChatData.MSG){
-                       // ??? TipsUtils.MsgNotificaction();
+                   try{
+                       checkSocketConnect();
+                       obj = in.readObject();
+                       if(obj instanceof ChatData.MSG){
+                           // ??? TipsUtils.MsgNotificaction();
 
-                       ChatData.MSG msg = (ChatData.MSG)obj;
-                       Log.d("ChatConnThread", "ChatConnThread receive msg type "+msg.getType());
-                       Log.d("ChatConnThread","ChatConnThread receive msg type from "+msg.getFromId());
-                       Log.d("ChatConnThread", "ChatConnThread receive msg type to "+msg.getToId());
-                       Log.d("ChatConnThread", "ChatConnThread receive msg type time "+msg.getTime());
-                       Log.d("ChatConnThread", "ChatConnThread receive msg type seq "+msg.getSeqNum());
-                       switch(msg.getType()){
-                           case ChatData.Type.CHATTING:
-                               msg.setHasRead(false);
-                               Log.d("ChatConnThread",msg.getFromId()+" send chatting msg to "+msg.getToId());
-                               MsgUtils.ShowChattingMsg(mContext,msg);
-                               break;
-                           case ChatData.Type.ADD_FRIEND:
-                               Log.d("ChatConnThread",msg.getFromId()+"send add friend request from "+msg.getFromId());
-                       //        Log.d("ChatConnThread",msg.getFromId()+"send add friend request photo size "+msg.getPhoto().length());
-                               Log.d("ChatConnThread",msg.getFromId()+"send add friend request to "+msg.getToId());
+                           ChatData.MSG msg = (ChatData.MSG)obj;
+                           Log.d("ChatConnThread", "ChatConnThread receive msg type "+msg.getType());
+                           Log.d("ChatConnThread","ChatConnThread receive msg type from "+msg.getFromId());
+                           Log.d("ChatConnThread", "ChatConnThread receive msg type to "+msg.getToId());
+                           Log.d("ChatConnThread", "ChatConnThread receive msg type time "+msg.getTime());
+                           Log.d("ChatConnThread", "ChatConnThread receive msg type seq "+msg.getSeqNum());
+                           switch(msg.getType()){
+                               case ChatData.Type.CHATTING:
+                                   msg.setHasRead(false);
+                                   Log.d("ChatConnThread",msg.getFromId()+" send chatting msg to "+msg.getToId());
+                                   MsgUtils.ShowChattingMsg(mContext,msg);
+                                   break;
+                               case ChatData.Type.ADD_FRIEND:
+                                   Log.d("ChatConnThread",msg.getFromId()+"send add friend request from "+msg.getFromId());
+                                   //        Log.d("ChatConnThread",msg.getFromId()+"send add friend request photo size "+msg.getPhoto().length());
+                                   Log.d("ChatConnThread",msg.getFromId()+"send add friend request to "+msg.getToId());
 
-                               MsgUtils.showAddFriendMsg(mContext, msg);
-                           //    MsgUtils.showAddFriendMsg(mContext, msg);
-                               break;
-                           case ChatData.Type.ADD_AGREE:
-                               Log.d("ChatConnThread",msg.getFromId()+"send add friend agree from "+msg.getFromId());
-                           //    Log.d("ChatConnThread",msg.getFromId()+"send add friend agree photo size "+msg.getPhoto().length());
-                               Log.d("ChatConnThread",msg.getFromId()+"send add friend agree to "+msg.getToId());
-                               MsgUtils.AddNewFriend(mContext, msg);
-                               break;
-                           case ChatData.Type.GET_BIGIMAGE:
-                               Log.d("PictureViewActivity", " receive big image from "+msg.getFromId());
-                               Log.d("PictureViewActivity", " receive big image to "+msg.getToId());
-                          //     Log.d("PictureViewActivity", " receive big image: "+msg.getBigBitmap());
-                               MsgUtils.ShowBigImage(mContext,msg);
+                                   MsgUtils.showAddFriendMsg(mContext, msg);
+                                   //    MsgUtils.showAddFriendMsg(mContext, msg);
+                                   break;
+                               case ChatData.Type.ADD_AGREE:
+                                   Log.d("ChatConnThread",msg.getFromId()+"send add friend agree from "+msg.getFromId());
+                                   //    Log.d("ChatConnThread",msg.getFromId()+"send add friend agree photo size "+msg.getPhoto().length());
+                                   Log.d("ChatConnThread",msg.getFromId()+"send add friend agree to "+msg.getToId());
+                                   MsgUtils.AddNewFriend(mContext, msg);
+                                   break;
+                               case ChatData.Type.GET_BIGIMAGE:
+                                   Log.d("PictureViewActivity", " receive big image from "+msg.getFromId());
+                                   Log.d("PictureViewActivity", " receive big image to "+msg.getToId());
+                                   //     Log.d("PictureViewActivity", " receive big image: "+msg.getBigBitmap());
+                                   MsgUtils.ShowBigImage(mContext,msg);
+
+                           }
 
                        }
+                   }catch(Exception e){
+                       Log.d("ChatConnThread","read data Exception occur");
+                       e.printStackTrace();
 
                    }
+
 
                }
 

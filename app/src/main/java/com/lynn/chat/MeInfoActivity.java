@@ -40,7 +40,8 @@ public class MeInfoActivity extends Activity {
        gender = (TextView)findViewById(R.id.gender_content);
        layout_me_photo = (LinearLayout)findViewById(R.id.layout_me_photo);
 
-       int photoSize = CacheUtils.getPhotoDefaultSize();
+   //    int photoSize = CacheUtils.getPhotoDefaultSize();
+       int photoSize = MyApplication.getPhotoDefaultSize();
 
        layout_me_photo.setLayoutParams(new LinearLayout.LayoutParams(photoSize,photoSize));
 

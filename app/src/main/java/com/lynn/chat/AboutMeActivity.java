@@ -98,7 +98,8 @@ public class AboutMeActivity extends Activity {
         });
 
         layout_photo = (LinearLayout)findViewById(R.id.layout_profile_photo);
-        int  photoWidth =  CacheUtils.getPhotoDefaultSize();
+   //     int  photoWidth =  CacheUtils.getPhotoDefaultSize();
+        int photoWidth = MyApplication.getPhotoDefaultSize();
         layout_photo.setLayoutParams(new LinearLayout.LayoutParams(photoWidth, photoWidth));
         Bitmap bitmap = CacheUtils.getBitmapFromLruCache(CacheUtils.GetUserId());
         if(bitmap!=null){

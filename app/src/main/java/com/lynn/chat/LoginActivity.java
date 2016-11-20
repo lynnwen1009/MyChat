@@ -200,7 +200,8 @@ public class LoginActivity extends Activity implements HttpCallBackListener {
 
             exist_account_Id.setVisibility(View.VISIBLE);
 
-            int photoWidth = CacheUtils.getPhotoDefaultSize();
+      //      int photoWidth = CacheUtils.getPhotoDefaultSize();
+            int photoWidth = MyApplication.getPhotoDefaultSize();
             layout_exist_account.setLayoutParams(new LinearLayout.LayoutParams(photoWidth, photoWidth));
 
             Bitmap bitmap = CacheUtils.getBitmapFromLruCache(id);

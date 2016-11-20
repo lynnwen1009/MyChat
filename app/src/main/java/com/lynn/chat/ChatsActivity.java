@@ -37,14 +37,14 @@ import java.util.Set;
 
 public class ChatsActivity extends Activity {
     ChatsListAdatpter adapter;
-    ArrayList<HashMap<String,Object>> listItem;
+  //  ArrayList<HashMap<String,Object>> listItem;
     ListView chatsListView;
     int i  = 1;
     String Clients[] = {"","","","","","","","","","","","","","","","","","","","","","","","",""};
     String YourName;
 //    FriendListReceiver receiver;
 //    Button addFriends;
-    HashMap<String ,Object> map;
+//    HashMap<String ,Object> map;
     private Context mContext;
     private MessageBroadcastReceiver receiver;
     LinearLayout layout_chats_photo;
@@ -57,13 +57,15 @@ public class ChatsActivity extends Activity {
         setContentView(R.layout.activity_chats);
         ActivityCollector.addActivity(this);
         chatsListView = (ListView)findViewById(R.id.chats_listView);
+        getApplicationContext();
+        getApplication();
         LinearLayout layout_title = (LinearLayout)findViewById(R.id.title_layout);
         layout_title.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        Log.d("Lynn", "titleLayout onTouch,ACTION_DOWN");
+                        Log.d("Lynn", "TitleLayout onTouch,ACTION_DOWN");
                         break;
                     case MotionEvent.ACTION_UP:
                         Log.d("Lynn", "TitleLayout onTouch ACTION_UP");
@@ -86,7 +88,8 @@ public class ChatsActivity extends Activity {
         LinearLayout layout_chats =(LinearLayout) LayoutInflater.from(mContext).inflate(R.layout.chats_item,null);
         layout_chats_photo = (LinearLayout)layout_chats.findViewById(R.id.layout_chats_photo);
 
-        int photoSize = CacheUtils.getPhotoDefaultSize();
+     //   int photoSize = CacheUtils.getPhotoDefaultSize();
+        int photoSize = MyApplication.getPhotoDefaultSize();
         layout_chats_photo.setLayoutParams(new LinearLayout.LayoutParams(photoSize,photoSize));
 
 
@@ -124,6 +127,7 @@ public class ChatsActivity extends Activity {
             default:
                 break;
         }
+        ArrayList a;
         return super.dispatchTouchEvent(ev);
     }
 
@@ -334,7 +338,8 @@ public class ChatsActivity extends Activity {
                 view = LayoutInflater.from(getContext()).inflate(resourceId,null);
                 viewHolder = new ViewHolder();
                 viewHolder.layout_chats_photo = (LinearLayout)view.findViewById(R.id.layout_chats_photo);
-                int photoSize = CacheUtils.getPhotoDefaultSize();
+            //    int photoSize = CacheUtils.getPhotoDefaultSize();
+                int photoSize = MyApplication.getPhotoDefaultSize();
                 viewHolder.layout_chats_photo.setLayoutParams(new LinearLayout.LayoutParams(photoSize,photoSize));
                 viewHolder.chats_photo = (ImageView)view.findViewById(R.id.chats_photo);
                 viewHolder.chats_unread_num = (TextView)view.findViewById(R.id.chat_unread_num);

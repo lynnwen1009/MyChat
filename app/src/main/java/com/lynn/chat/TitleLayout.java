@@ -29,7 +29,7 @@ public class TitleLayout extends LinearLayout {
 
        final Button titlePlus = (Button)findViewById(R.id.title_plus);
        TextView chattitle =  (TextView)findViewById(R.id.chattitle);
-       MyButton myButton = (MyButton)findViewById(R.id.my_button);
+     /*  MyButton myButton = (MyButton)findViewById(R.id.my_button);
        myButton.setOnClickListener(new OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -51,7 +51,7 @@ public class TitleLayout extends LinearLayout {
                }
                return false;
            }
-       });
+       });*/
        titlePlus.setOnClickListener(new OnClickListener() {
            @Override
            public void onClick(View v) {

@@ -102,7 +102,8 @@ public class RegisterActivity extends Activity implements HttpCallBackListener {
         registerButton = (Button)findViewById(R.id.register_button);
 
         //set photo size according to the phone size,1/5  window size
-        photoWidth = CacheUtils.getPhotoDefaultSize();
+    //    photoWidth = CacheUtils.getPhotoDefaultSize();
+        photoWidth = MyApplication.getPhotoDefaultSize();
         layout_register_photo.setLayoutParams(new LinearLayout.LayoutParams(photoWidth ,photoWidth));
         Log.d(TAG, "initViews(),widthWindow:" + photoWidth);
 

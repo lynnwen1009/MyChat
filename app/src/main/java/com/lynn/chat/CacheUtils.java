@@ -76,9 +76,9 @@ public class CacheUtils
         Log.d("WelcomeActivity","window y dpi: "+ydpi);
 
     }
-    public static int getPhotoDefaultSize(){
-        return photoDefaultSize;
-    }
+ //   public static int getPhotoDefaultSize(){
+  //      return photoDefaultSize;
+ //   }
     public static void SetUserCache(User user){
         mUser = user;
 

@@ -34,7 +34,8 @@ public class WelcomeActivity extends Activity implements HttpCallBackListener {
 
         welcomeImage = (ImageView)findViewById(R.id.welcome_view);
         welcomeImage.setImageResource(R.drawable.chatting_bg);
-        int memoryCache = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass();
+        //int memoryCache = ((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass();
+        int memoryCache = MyApplication.getMemoryCache();
         int cacheSize = 1024*1024*memoryCache/8;
         Log.d("WelcomeActivity","memoryCache:"+memoryCache);
         MyLruCache myLruCache = new MyLruCache(cacheSize);

@@ -240,7 +240,8 @@ public class FriendsList extends Activity {
                 viewHolder = (ViewHolder) view.getTag();
                 Log.d("FriendsList", "get tag for view,viewHolder. ");
             }
-            int photoSize = CacheUtils.getPhotoDefaultSize();
+          //  int photoSize = CacheUtils.getPhotoDefaultSize();
+            int photoSize = MyApplication.getPhotoDefaultSize();
             viewHolder.layout_friends_List_photo.setLayoutParams(new LinearLayout.LayoutParams(photoSize, photoSize));
 
             Bitmap bitmap = CacheUtils.getBitmapFromLruCache(user.getUserId());
